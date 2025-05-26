@@ -25,6 +25,7 @@ class InstallerApp: NSApplication {
     var progressBar: NSProgressIndicator!
     var statusLabel: NSTextField!
     var fileInfoLabel: NSTextField!
+    var percentageLabel: NSTextField!
     
     override func run() {
         setupUI()
@@ -33,7 +34,7 @@ class InstallerApp: NSApplication {
     }
     
     func setupUI() {
-        // Créer la fenêtre
+        // Créer la fenêtre avec un style moderne
         statusWindow = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 400, height: 200),
             styleMask: [.titled, .closable],
@@ -42,30 +43,58 @@ class InstallerApp: NSApplication {
         )
         statusWindow.center()
         statusWindow.title = "Installation en cours"
+        statusWindow.backgroundColor = NSColor.windowBackgroundColor
+        
+        // Créer un conteneur pour centrer les éléments
+        let containerView = NSView(frame: NSRect(x: 0, y: 0, width: 400, height: 200))
+        containerView.wantsLayer = true
+        statusWindow.contentView = containerView
         
         // Créer la barre de progression
         progressBar = NSProgressIndicator(frame: NSRect(x: 20, y: 120, width: 360, height: 20))
         progressBar.style = .bar
+        progressBar.controlSize = .large
+        progressBar.isIndeterminate = false
         progressBar.minValue = 0
         progressBar.maxValue = 100
-        progressBar.isIndeterminate = false
-        statusWindow.contentView?.addSubview(progressBar)
+        containerView.addSubview(progressBar)
+        
+        // Créer le label de pourcentage
+        percentageLabel = NSTextField(frame: NSRect(x: 20, y: 100, width: 360, height: 20))
+        percentageLabel.isEditable = false
+        percentageLabel.isBordered = false
+        percentageLabel.backgroundColor = .clear
+        percentageLabel.alignment = .center
+        percentageLabel.font = NSFont.systemFont(ofSize: 12)
+        percentageLabel.stringValue = "0%"
+        containerView.addSubview(percentageLabel)
         
         // Créer le label de statut
-        statusLabel = NSTextField(frame: NSRect(x: 20, y: 80, width: 360, height: 20))
+        statusLabel = NSTextField(frame: NSRect(x: 20, y: 60, width: 360, height: 20))
         statusLabel.isEditable = false
         statusLabel.isBordered = false
         statusLabel.backgroundColor = .clear
+        statusLabel.alignment = .center
+        statusLabel.font = NSFont.systemFont(ofSize: 14)
         statusLabel.stringValue = "Vérification des prérequis..."
-        statusWindow.contentView?.addSubview(statusLabel)
+        containerView.addSubview(statusLabel)
         
         // Créer le label d'information sur le fichier
-        fileInfoLabel = NSTextField(frame: NSRect(x: 20, y: 40, width: 360, height: 20))
+        fileInfoLabel = NSTextField(frame: NSRect(x: 20, y: 20, width: 360, height: 20))
         fileInfoLabel.isEditable = false
         fileInfoLabel.isBordered = false
         fileInfoLabel.backgroundColor = .clear
+        fileInfoLabel.alignment = .center
+        fileInfoLabel.font = NSFont.systemFont(ofSize: 12)
         fileInfoLabel.stringValue = ""
-        statusWindow.contentView?.addSubview(fileInfoLabel)
+        containerView.addSubview(fileInfoLabel)
+        
+        // Ajouter un effet de flou à la fenêtre
+        if let windowView = statusWindow.contentView {
+            windowView.wantsLayer = true
+            windowView.layer?.cornerRadius = 10
+            windowView.layer?.masksToBounds = true
+        }
         
         statusWindow.makeKeyAndOrderFront(nil)
     }
@@ -91,6 +120,7 @@ class InstallerApp: NSApplication {
     func updateProgress(_ value: Double) {
         DispatchQueue.main.async { [weak self] in
             self?.progressBar.doubleValue = value
+            self?.percentageLabel.stringValue = "\(Int(value))%"
         }
     }
     
@@ -294,11 +324,9 @@ func downloadFile(_ filename: String, from serverURL: String, to tempDir: String
 func unzipFile(_ filename: String, in tempDir: String) throws {
     let process = Process()
     process.executableURL = URL(fileURLWithPath: "/usr/bin/unzip")
-    process.arguments = ["-q", filename, "-d", tempDir]
-    
+    process.arguments = ["-o", "-q", filename, "-d", tempDir]
     try process.run()
     process.waitUntilExit()
-    
     if process.terminationStatus != 0 {
         throw NSError(domain: "UnzipError", code: Int(process.terminationStatus), userInfo: nil)
     }
