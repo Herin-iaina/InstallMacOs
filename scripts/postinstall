@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Définir les permissions d'exécution sur le script
+chmod +x /usr/local/bin/macos_installer_client.sh
+
+# Créer le dossier de logs s'il n'existe pas
+mkdir -p /var/tmp
+chmod 777 /var/tmp
+
+exit 0 

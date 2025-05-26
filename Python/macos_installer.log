@@ -1,0 +1,36 @@
+2025-05-26 12:55:23,527 - INFO - Démarrage du serveur sur le port 5001
+2025-05-26 12:55:23,528 - INFO - Dossier des fichiers: /Users/arthur_smartelia/InstallMacOS/Python/files
+2025-05-26 12:55:23,548 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://172.17.19.26:5001
+2025-05-26 12:55:23,548 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-26 13:29:41,733 - INFO - 172.17.19.26 - - [26/May/2025 13:29:41] "GET /files HTTP/1.1" 200 -
+2025-05-26 13:29:58,530 - INFO - 172.17.19.26 - - [26/May/2025 13:29:58] "GET /files HTTP/1.1" 200 -
+2025-05-26 13:33:21,953 - INFO - 172.17.19.26 - - [26/May/2025 13:33:21] "GET /files HTTP/1.1" 200 -
+2025-05-26 13:35:16,889 - INFO - 172.17.19.26 - - [26/May/2025 13:35:16] "GET /files HTTP/1.1" 200 -
+2025-05-26 13:36:55,267 - INFO - 172.17.19.26 - - [26/May/2025 13:36:55] "[33mGET / HTTP/1.1[0m" 404 -
+2025-05-26 13:36:55,984 - INFO - 172.17.19.26 - - [26/May/2025 13:36:55] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-05-26 13:42:50,173 - INFO - 172.17.18.1 - - [26/May/2025 13:42:50] "GET /files HTTP/1.1" 200 -
+2025-05-26 15:01:19,813 - INFO - Démarrage du serveur sur le port 5001
+2025-05-26 15:01:19,813 - INFO - Dossier des fichiers: /Users/arthur_smartelia/InstallMacOS/Python/files
+2025-05-26 15:01:19,829 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://172.17.19.26:5001
+2025-05-26 15:01:19,829 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-26 15:01:27,666 - INFO - 127.0.0.1 - - [26/May/2025 15:01:27] "GET /files HTTP/1.1" 200 -
+2025-05-26 15:01:27,679 - INFO - 127.0.0.1 - - [26/May/2025 15:01:27] "GET /files HTTP/1.1" 200 -
+2025-05-26 15:01:27,682 - INFO - Envoi du fichier: installMacOsV6.sh
+2025-05-26 15:01:27,686 - INFO - 127.0.0.1 - - [26/May/2025 15:01:27] "GET /files/installMacOsV6.sh HTTP/1.1" 200 -
+2025-05-26 15:01:27,689 - INFO - Envoi du fichier: launch_installer.scpt
+2025-05-26 15:01:27,690 - INFO - 127.0.0.1 - - [26/May/2025 15:01:27] "GET /files/launch_installer.scpt HTTP/1.1" 200 -
+2025-05-26 15:01:27,692 - INFO - Envoi du fichier: takeout-20250523T132826Z-001 Ines.zip
+2025-05-26 15:01:27,693 - INFO - 127.0.0.1 - - [26/May/2025 15:01:27] "GET /files/takeout-20250523T132826Z-001%20Ines.zip HTTP/1.1" 200 -
+2025-05-26 15:05:05,781 - INFO - 172.17.19.26 - - [26/May/2025 15:05:05] "GET /files HTTP/1.1" 200 -
+2025-05-26 15:05:05,807 - INFO - Envoi du fichier: installMacOsV6.sh
+2025-05-26 15:05:05,808 - INFO - 172.17.19.26 - - [26/May/2025 15:05:05] "GET /files/installMacOsV6.sh HTTP/1.1" 200 -
+2025-05-26 15:05:05,824 - INFO - Envoi du fichier: launch_installer.scpt
+2025-05-26 15:05:05,825 - INFO - 172.17.19.26 - - [26/May/2025 15:05:05] "GET /files/launch_installer.scpt HTTP/1.1" 200 -
+2025-05-26 15:05:05,829 - INFO - Envoi du fichier: takeout-20250523T132826Z-001 Ines.zip
+2025-05-26 15:05:05,830 - INFO - 172.17.19.26 - - [26/May/2025 15:05:05] "GET /files/takeout-20250523T132826Z-001%20Ines.zip HTTP/1.1" 200 -
