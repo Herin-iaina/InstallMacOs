@@ -147,8 +147,22 @@ class InstallerApp: NSApplication {
         if !FileManager.default.isWritableFile(atPath: tempDir) {
             print("DEBUG: Erreur - Dossier non accessible en écriture: \(tempDir)")
             log("ERROR", "Le dossier \(tempDir) n'est pas accessible en écriture")
-            NSApp.terminate(nil)
-            return
+            
+            // Essayer de créer le dossier avec les bonnes permissions
+            do {
+                try FileManager.default.createDirectory(atPath: tempDir, withIntermediateDirectories: true)
+                try FileManager.default.setAttributes([FileAttributeKey.posixPermissions: 0o777], ofItemAtPath: tempDir)
+                
+                if !FileManager.default.isWritableFile(atPath: tempDir) {
+                    log("ERROR", "Impossible d'obtenir les permissions d'écriture sur \(tempDir)")
+                    NSApp.terminate(nil)
+                    return
+                }
+            } catch {
+                log("ERROR", "Erreur lors de la création du dossier temporaire: \(error.localizedDescription)")
+                NSApp.terminate(nil)
+                return
+            }
         }
         updateProgress(10)
         
@@ -169,7 +183,7 @@ class InstallerApp: NSApplication {
         print("DEBUG: Vérification de l'installation de unzip")
         if !isUnzipInstalled() {
             print("DEBUG: Erreur - unzip non installé")
-            log("ERROR", "unzip n'est pas installé")
+            log("ERROR", "unzip n'est pas installé. Veuillez l'installer via Homebrew ou le gestionnaire de paquets de votre choix.")
             NSApp.terminate(nil)
             return
         }
@@ -334,4 +348,6 @@ func unzipFile(_ filename: String, in tempDir: String) throws {
 
 // Point d'entrée de l'application
 let app = InstallerApp.shared
-app.run() 
+app.setActivationPolicy(.regular)
+app.activate(ignoringOtherApps: true)
+NSApp.run() 

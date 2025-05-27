@@ -1,10 +1,20 @@
 #!/bin/bash
 
-# Définir les permissions d'exécution sur le script
-chmod +x /usr/local/bin/macos_installer_client.sh
+# Définir les permissions d'exécution sur l'application
+chmod +x "/Applications/macOS_downloader.app/Contents/MacOS/macOS_downloader"
 
-# Créer le dossier de logs s'il n'existe pas
+# Créer le dossier de logs avec les bonnes permissions
 mkdir -p /var/tmp
 chmod 777 /var/tmp
 
-exit 0 
+# Vérifier et installer unzip si nécessaire
+if ! command -v unzip &> /dev/null; then
+    echo "Installation de unzip..."
+    if command -v brew &> /dev/null; then
+        brew install unzip
+    else
+        echo "Homebrew non trouvé. Veuillez installer unzip manuellement."
+    fi
+fi
+
+exit 0
