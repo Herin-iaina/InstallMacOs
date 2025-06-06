@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Configuration
-SERVER_URL="http://172.17.19.26:5001"
+SERVER_URL="http://172.17.19.61:5001"
 TEMP_DIR="/var/tmp"
 LOG_FILE="/var/tmp/macos_installer_client.log"
 
@@ -41,7 +41,9 @@ check_prerequisites() {
 # Téléchargement et décompression d'un fichier
 download_file() {
     local filename=$1
-    local url="${SERVER_URL}/files/${filename}"
+    # URL encode the filename for the URL
+    local encoded_filename=$(echo "$filename" | sed 's/ /%20/g')
+    local url="${SERVER_URL}/files/${encoded_filename}"
     local destination="${TEMP_DIR}/${filename}"
     
     log "INFO" "Téléchargement de $filename..."

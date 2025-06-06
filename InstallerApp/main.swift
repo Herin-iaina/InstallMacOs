@@ -126,7 +126,7 @@ class InstallerApp: NSApplication {
     
     func runInstallation() {
         print("DEBUG: Démarrage de l'installation")
-        let serverURL = "http://172.17.19.26:5001"
+        let serverURL = "http://172.17.19.61:5001"
         let tempDir = "/var/tmp"
         let logFile = "/var/tmp/macos_installer_client.log"
         
