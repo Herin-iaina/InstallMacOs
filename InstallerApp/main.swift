@@ -1,6 +1,14 @@
 import Foundation
 import AppKit
 
+// Vérification de la version de macOS
+func isCompatibleWithCurrentOS() -> Bool {
+    if #available(macOS 10.13, *) {
+        return true
+    }
+    return false
+}
+
 // Structures pour les informations des fichiers
 struct FileInfo: Codable {
     let name: String
@@ -28,6 +36,18 @@ class InstallerApp: NSApplication {
     var percentageLabel: NSTextField!
     
     override func run() {
+        // Vérifier la compatibilité avec le système d'exploitation
+        if !isCompatibleWithCurrentOS() {
+            let alert = NSAlert()
+            alert.messageText = "Version de macOS non supportée"
+            alert.informativeText = "Cette application nécessite macOS 10.13 ou version ultérieure."
+            alert.alertStyle = .warning
+            alert.addButton(withTitle: "OK")
+            alert.runModal()
+            NSApp.terminate(nil)
+            return
+        }
+        
         setupUI()
         startInstallation()
         super.run()
@@ -43,6 +63,11 @@ class InstallerApp: NSApplication {
         )
         statusWindow.center()
         statusWindow.title = "Installation en cours"
+        
+        // Adapter le style de la fenêtre selon la version de macOS
+        if #available(macOS 10.14, *) {
+            statusWindow.appearance = NSAppearance(named: .aqua)
+        }
         statusWindow.backgroundColor = NSColor.windowBackgroundColor
         
         // Créer un conteneur pour centrer les éléments
@@ -89,11 +114,13 @@ class InstallerApp: NSApplication {
         fileInfoLabel.stringValue = ""
         containerView.addSubview(fileInfoLabel)
         
-        // Ajouter un effet de flou à la fenêtre
-        if let windowView = statusWindow.contentView {
-            windowView.wantsLayer = true
-            windowView.layer?.cornerRadius = 10
-            windowView.layer?.masksToBounds = true
+        // Ajouter un effet de flou à la fenêtre si disponible
+        if #available(macOS 10.14, *) {
+            if let windowView = statusWindow.contentView {
+                windowView.wantsLayer = true
+                windowView.layer?.cornerRadius = 10
+                windowView.layer?.masksToBounds = true
+            }
         }
         
         statusWindow.makeKeyAndOrderFront(nil)

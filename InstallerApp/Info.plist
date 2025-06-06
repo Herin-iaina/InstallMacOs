@@ -18,5 +18,38 @@
     <true/>
     <key>NSPrincipalClass</key>
     <string>NSApplication</string>
+    <key>LSApplicationCategoryType</key>
+    <string>public.app-category.utilities</string>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
+    <key>NSHumanReadableCopyright</key>
+    <string>Copyright © 2024 Smartelia. All rights reserved.</string>
+    <key>IFMajorVersion</key>
+    <integer>1</integer>
+    <key>IFMinorVersion</key>
+    <integer>0</integer>
+    <key>IFPkgFlagAllowBackRev</key>
+    <false/>
+    <key>IFPkgFlagAuthorizationAction</key>
+    <string>RootAuthorization</string>
+    <key>IFPkgFlagDefaultLocation</key>
+    <string>/</string>
+    <key>IFPkgFlagInstallFat</key>
+    <false/>
+    <key>IFPkgFlagIsRequired</key>
+    <false/>
+    <key>IFPkgFlagRelocatable</key>
+    <false/>
+    <key>IFPkgFlagRestartAction</key>
+    <string>NoRestart</string>
+    <key>IFPkgFlagRootVolumeOnly</key>
+    <true/>
+    <key>IFPkgFlagUpdateInstalledLanguages</key>
+    <false/>
 </dict>
 </plist> 
+
+

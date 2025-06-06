@@ -116,3 +116,38 @@
 2025-06-06 14:30:14,500 - INFO - 172.17.19.61 - - [06/Jun/2025 14:30:14] "GET /files/launch_installer.scpt HTTP/1.1" 200 -
 2025-06-06 14:30:14,503 - INFO - Envoi du fichier: takeout-20250523T132826Z-001 Ines.zip
 2025-06-06 14:30:14,504 - INFO - 172.17.19.61 - - [06/Jun/2025 14:30:14] "GET /files/takeout-20250523T132826Z-001%20Ines.zip HTTP/1.1" 200 -
+2025-06-06 14:37:48,389 - INFO - 172.17.19.61 - - [06/Jun/2025 14:37:48] "GET /files HTTP/1.1" 200 -
+2025-06-06 14:37:48,411 - INFO - Envoi du fichier: installMacOsV6.sh
+2025-06-06 14:37:48,413 - INFO - 172.17.19.61 - - [06/Jun/2025 14:37:48] "GET /files/installMacOsV6.sh HTTP/1.1" 200 -
+2025-06-06 14:37:48,420 - INFO - Envoi du fichier: launch_installer.scpt
+2025-06-06 14:37:48,421 - INFO - 172.17.19.61 - - [06/Jun/2025 14:37:48] "GET /files/launch_installer.scpt HTTP/1.1" 200 -
+2025-06-06 14:37:48,429 - INFO - Envoi du fichier: takeout-20250523T132826Z-001 Ines.zip
+2025-06-06 14:37:48,431 - INFO - 172.17.19.61 - - [06/Jun/2025 14:37:48] "GET /files/takeout-20250523T132826Z-001%20Ines.zip HTTP/1.1" 200 -
+2025-06-06 14:47:53,375 - INFO - 172.17.19.61 - - [06/Jun/2025 14:47:53] "GET /files HTTP/1.1" 200 -
+2025-06-06 14:47:53,411 - INFO - Envoi du fichier: installMacOsV6.sh
+2025-06-06 14:47:53,413 - INFO - 172.17.19.61 - - [06/Jun/2025 14:47:53] "GET /files/installMacOsV6.sh HTTP/1.1" 200 -
+2025-06-06 14:47:53,419 - INFO - Envoi du fichier: launch_installer.scpt
+2025-06-06 14:47:53,421 - INFO - 172.17.19.61 - - [06/Jun/2025 14:47:53] "GET /files/launch_installer.scpt HTTP/1.1" 200 -
+2025-06-06 14:47:53,424 - INFO - Envoi du fichier: takeout-20250523T132826Z-001 Ines.zip
+2025-06-06 14:47:53,425 - INFO - 172.17.19.61 - - [06/Jun/2025 14:47:53] "GET /files/takeout-20250523T132826Z-001%20Ines.zip HTTP/1.1" 200 -
+2025-06-06 15:11:21,408 - INFO - Démarrage du serveur sur le port 5001
+2025-06-06 15:11:21,408 - INFO - Dossier des fichiers: /Users/arthur_smartelia/InstallMacOS/Python/files
+2025-06-06 15:11:21,420 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://172.17.19.61:5001
+2025-06-06 15:11:21,420 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-06 15:13:55,451 - INFO - 172.17.19.61 - - [06/Jun/2025 15:13:55] "GET /files HTTP/1.1" 200 -
+2025-06-06 15:13:55,464 - INFO - Envoi du fichier: installMacOsV6.sh
+2025-06-06 15:13:55,469 - INFO - 172.17.19.61 - - [06/Jun/2025 15:13:55] "GET /files/installMacOsV6.sh HTTP/1.1" 200 -
+2025-06-06 15:13:55,474 - INFO - Envoi du fichier: launch_installer.scpt
+2025-06-06 15:13:55,474 - INFO - 172.17.19.61 - - [06/Jun/2025 15:13:55] "GET /files/launch_installer.scpt HTTP/1.1" 200 -
+2025-06-06 15:13:55,484 - INFO - Envoi du fichier: takeout-20250523T132826Z-001 Ines.zip
+2025-06-06 15:13:55,484 - INFO - 172.17.19.61 - - [06/Jun/2025 15:13:55] "GET /files/takeout-20250523T132826Z-001%20Ines.zip HTTP/1.1" 200 -
+2025-06-06 15:16:22,979 - INFO - 172.17.19.61 - - [06/Jun/2025 15:16:22] "GET /files HTTP/1.1" 200 -
+2025-06-06 15:16:22,994 - INFO - Envoi du fichier: installMacOsV6.sh
+2025-06-06 15:16:22,995 - INFO - 172.17.19.61 - - [06/Jun/2025 15:16:22] "GET /files/installMacOsV6.sh HTTP/1.1" 200 -
+2025-06-06 15:16:23,108 - INFO - Envoi du fichier: launch_installer.scpt
+2025-06-06 15:16:23,109 - INFO - 172.17.19.61 - - [06/Jun/2025 15:16:23] "GET /files/launch_installer.scpt HTTP/1.1" 200 -
+2025-06-06 15:16:23,115 - INFO - Envoi du fichier: takeout-20250523T132826Z-001 Ines.zip
+2025-06-06 15:16:23,116 - INFO - 172.17.19.61 - - [06/Jun/2025 15:16:23] "GET /files/takeout-20250523T132826Z-001%20Ines.zip HTTP/1.1" 200 -

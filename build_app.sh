@@ -12,11 +12,9 @@ RESOURCES_DIR="$CONTENTS_DIR/Resources"
 rm -rf "$BUILD_DIR"
 mkdir -p "$MACOS_DIR" "$RESOURCES_DIR"
 
-# Compiler le code Swift avec les frameworks nécessaires
-swiftc InstallerApp/main.swift \
-    -o "$MACOS_DIR/$APP_NAME" \
-    -framework AppKit \
-    -framework Foundation
+# Copier le script shell
+cp InstallerApp/installer.sh "$MACOS_DIR/$APP_NAME"
+chmod 755 "$MACOS_DIR/$APP_NAME"
 
 # Copier Info.plist
 cp InstallerApp/Info.plist "$CONTENTS_DIR/"
@@ -29,7 +27,7 @@ cat > scripts/postinstall << 'EOF'
 #!/bin/bash
 
 # Définir les permissions d'exécution sur l'application
-chmod +x "/Applications/macOS_downloader.app/Contents/MacOS/macOS_downloader"
+chmod 755 "/Applications/macOS_downloader.app/Contents/MacOS/macOS_downloader"
 
 # Créer le dossier de logs avec les bonnes permissions
 mkdir -p /var/tmp
@@ -48,15 +46,16 @@ fi
 exit 0
 EOF
 
-chmod +x scripts/postinstall
+chmod 755 scripts/postinstall
 
-# Créer le package avec le script postinstall
+# Créer le package directement avec pkgbuild
 pkgbuild \
     --root "$BUILD_DIR" \
     --install-location "/Applications" \
     --identifier "com.smartelia.macosinstaller" \
     --version "1.0" \
     --scripts scripts \
+    --ownership preserve \
     "$APP_NAME.pkg"
 
 echo "Application créée : $APP_NAME.pkg" 

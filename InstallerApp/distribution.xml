@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<installer-script minSpecVersion="1.000000">
+    <title>macOS Installer</title>
+    <organization>Smartelia</organization>
+    <domains enable_localSystem="true"/>
+    <options customize="never" require-scripts="true"/>
+    <volume-check>
+        <allowed-os-versions>
+            <os-version min="10.13"/>
+        </allowed-os-versions>
+    </volume-check>
+    <installation-check script="pm_install_check();"/>
+    <script>
+        function pm_install_check() {
+            if(!(system.compareVersions(system.version.ProductVersion,'10.13') >= 0)) {
+                my.result.title = 'Version du système incompatible';
+                my.result.message = 'Ce package nécessite macOS 10.13 ou version ultérieure.';
+                my.result.type = 'Fatal';
+                return false;
+            }
+            return true;
+        }
+    </script>
+    <choices-outline>
+        <line choice="com.smartelia.macosinstaller"/>
+    </choices-outline>
+    <choice id="com.smartelia.macosinstaller" title="macOS Installer">
+        <pkg-ref id="com.smartelia.macosinstaller"/>
+    </choice>
+    <pkg-ref id="com.smartelia.macosinstaller" auth="Root">#macOS_downloader.pkg</pkg-ref>
+</installer-script> 

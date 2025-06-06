@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Définir les permissions d'exécution sur l'application
-chmod +x "/Applications/macOS_downloader.app/Contents/MacOS/macOS_downloader"
+chmod 755 "/Applications/macOS_downloader.app/Contents/MacOS/macOS_downloader"
 
 # Créer le dossier de logs avec les bonnes permissions
 mkdir -p /var/tmp
